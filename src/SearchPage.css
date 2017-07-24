@@ -1,0 +1,36 @@
+.wrapper {
+  width: 75%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 5px 2px #D1C4E9;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 20px auto;
+  background-color: #EDE7F6;
+}
+
+.searchForm {
+  display: inline-block;
+}
+
+.searchForm__legend {
+  text-align: center;
+}
+
+.searchForm__input {
+  height: 35px;
+  width: 100%;
+  color: brown;
+  padding: 0 8px;
+  border: none;
+  background-color: #D1C4E9;
+  font-size: 17px;
+  border-radius: 6px;
+}
+
+.searchForm__button {
+  display: block;
+  font-size: 15px;
+  margin: 10px auto;
+  width: 70%;
+  border-radius: 6px;
+}

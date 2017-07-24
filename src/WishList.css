@@ -1,0 +1,19 @@
+.wishList {
+  width: 75%;
+  margin: 20px auto;
+  list-style: none;
+  color: black;
+  font-size: 17px;
+  line-height: 2;
+  text-align: center;
+}
+
+.wish-wrapper{
+  width: 75%;
+  box-sizing: border-box;
+  box-shadow: 0 1px 5px 2px #D1C4E9;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 20px auto;
+  background-color: #FFECB3;
+}
