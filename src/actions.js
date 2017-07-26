@@ -1,9 +1,9 @@
 import * as types from "./constants";
 
-export function addToWish(item) {
+export function addToWish(movie) {
   return {
     type: types.ADD_TO_WISH,
-    item
+    movie
   };
 }
 
@@ -14,10 +14,23 @@ export function searchMovie(title) {
   };
 }
 
+export function getMovies() {
+  return {
+    type: types.GET_MOVIES,
+  };
+}
+
 export function fetchSuccess(movie) {
   return {
     type: types.FETCH_SUCCESS,
     movie
+  };
+}
+
+export function fetchMoviesData(movies) {
+  return {
+    type: types.FETCH_MOVIES_DATA,
+    movies
   };
 }
 

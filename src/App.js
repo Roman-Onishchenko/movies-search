@@ -7,13 +7,14 @@ import SearchPage from './SearchPage';
 
 class App extends Component {
 
-
   render() {
     return (
       <div>
+
         <SearchPage
-          filmInfo={this.props.filmInfo}
+          movieInfo={this.props.movieInfo}
           searchMovie={this.props.searchMovie}
+          addToWish={this.props.addToWish}
         />
       </div>
     );
@@ -21,13 +22,14 @@ class App extends Component {
 }
 
 App.propTypes = {
-  filmInfo: PropTypes.object,
+  movieInfo: PropTypes.object,
+  addToWish:PropTypes.func,
   searchMovie: PropTypes.func
 };
 
 export default connect(
   state => ({
-    filmInfo: state.searchFilmReducer
+    movieInfo: state.searchMovie.get('foundMovie'),
   }),
   dispatch => bindActionCreators(actions, dispatch)
 )(App);

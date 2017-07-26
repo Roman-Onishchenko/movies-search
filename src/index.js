@@ -11,7 +11,7 @@ import reducer from './reducer';
 import mySaga from './sagas';
 import './index.css';
 import App from './App';
-import WishList from './WishList';
+import FullWishlist from './FullWishlist';
 import registerServiceWorker from './registerServiceWorker';
 
 const history = createBrowserHistory();
@@ -38,14 +38,13 @@ ReactDOM.render(
       <ConnectedRouter history={history}>
         <BrowserRouter>
            <Switch>
-              <Route exact path='/' component={App}/>
-              <Route path='/wishlist' component={WishList}/>
+              <Route exact path='/' component={App} />
+              <Route path='/wishlist' component={FullWishlist} />
             </Switch>
          </BrowserRouter>
       </ConnectedRouter>
   	</Provider>,
     document.getElementById('root')
 );
-
 
 registerServiceWorker();

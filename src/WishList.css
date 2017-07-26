@@ -8,6 +8,11 @@
   text-align: center;
 }
 
+.wishList li {
+  margin-bottom: 40px;
+  overflow: auto;
+}
+
 .wish-wrapper{
   width: 75%;
   box-sizing: border-box;
@@ -16,4 +21,50 @@
   border-radius: 10px;
   margin: 20px auto;
   background-color: #FFECB3;
+}
+
+.header-nav {
+  list-style: none;
+  font-size: 18px;
+}
+
+.header-nav li {
+  margin-bottom: 30px;
+}
+
+.title {
+  font-size: 20px;
+  color: brown;
+}
+
+.overview {
+  color: grey;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.poster {
+  margin-top: 30px;
+  margin-left: 60px;
+  width: 220px;
+  float: right;
+  border-radius: 8px;
+}
+
+.poster img {
+  width: 190px;
+  border-radius: 6px;
+  height: auto;
+}
+
+.newWindow {
+  color:brown;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.date {
+  text-align: left;
+  color: grey;
 }

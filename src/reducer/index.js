@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import searchFilmReducer from './filmReducer';
+import searchMovie from './movieReducer';
+import wishList from './wishListReducer';
 
-export default combineReducers (
-	{
-		searchFilmReducer
-	}
-)
+export default combineReducers({
+	searchMovie,
+	wishList
+});

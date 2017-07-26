@@ -4,6 +4,19 @@ import Form from 'muicss/lib/react/form';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import './SearchPage.css';
+import { Link } from 'react-router-dom';
+import Movie from './Movie';
+
+const Header = () => (
+  <header>
+    <nav>
+      <ul className="header-nav">
+        <li><Link to='/wishlist'>Wishlist</Link></li>
+      </ul>
+    </nav>
+  </header>
+);
+
 
 class SearchPage extends Component {
 
@@ -12,64 +25,92 @@ class SearchPage extends Component {
 
     this.state = {
       inputValue: '',
+      errInfo: true
     }
   }
 
-  onInputChange (e) {
+  onInputChange(e) {
     this.setState({
       inputValue: e.target.value,
     });
   }
 
-  saveToStore () {
+  saveToStore() {
+    this.setState({errInfo: false});
+
     if (this.state.inputValue) {
       this.props.searchMovie(this.state.inputValue);
     };
-
     this.filmInput.value = '';
+  }
+
+  addToWish() {
+    this.props.addToWish(this.props.movieInfo);
   }
 
   render() {
 
     return (
+      <div>
 
-      <div className="wrapper">
-
-        <Form
-          className="searchForm"
-          onClick={ (event) => { event.preventDefault() } }
+        <div
+          className="wrapper cf"
         >
+          <Header />
 
-          <legend
-            className="searchForm__legend">
-            Название фильма:
-          </legend>
-
-          <input
-            className="searchForm__input"
-            ref={ (input) => { this.filmInput = input } }
-            onChange={ this.onInputChange.bind(this) }
-            name="searchFilm"
-          />
-
-          <Button
-            className="searchForm__button"
-            id="addToStore"
-            onClick={ this.saveToStore.bind(this) }
+          <Form
+            className="searchForm"
+            onClick={ (event) => { event.preventDefault() } }
           >
-            Найти
-          </Button>
 
-        </Form>
+            <legend
+              className="searchForm__legend"
+            >
+              Название фильма:
+            </legend>
 
-        {this.props.filmInfo.title && <div>
-          <p>{this.props.filmInfo.title}</p>
-          <p>{this.props.filmInfo.overview}</p>
-          <img src={this.props.filmInfo.poster_path} alt="logo" />
-          <img src={this.props.filmInfo.backdrop_path} alt="logo" />
-          <p>{this.props.filmInfo.release_date}</p>
+            <input
+              className="searchForm__input"
+              ref={ (input) => { this.filmInput = input } }
+              onChange={ this.onInputChange.bind(this) }
+              name="searchFilm"
+            />
+
+            <Button
+              color="primary"
+              className="searchForm__button"
+              id="addToStore"
+              onClick={ this.saveToStore.bind(this) }
+            >
+              Найти
+            </Button>
+
+            {!this.state.errInfo && !this.props.movieInfo.id && 
+              <p className="warning">Совпадений не найдено</p>}
+
+          </Form>
+
+            {this.props.movieInfo.id && <div>
+
+              <Movie movieInfo={this.props.movieInfo} />
+
+              <div className="toWish">
+
+                <span className="toWish__text"> Add to Wish List</span>
+
+                <Button
+                  onClick={this.addToWish.bind(this)}
+                  className="toWish__btn"
+                  variant="fab"
+                  color="danger"
+                >
+                  +
+                </Button>
+              </div>
+
+          </div>}
+
         </div>
-        }
 
       </div>
     )
@@ -77,8 +118,9 @@ class SearchPage extends Component {
 }
 
 SearchPage.propTypes = {
-  filmInfo: PropTypes.object,
-  searchMovie: PropTypes.func
+  movieInfo: PropTypes.object,
+  searchMovie: PropTypes.func,
+  addToWish: PropTypes.func
 };
 
 export default SearchPage

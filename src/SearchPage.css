@@ -5,11 +5,21 @@
   padding: 40px;
   border-radius: 10px;
   margin: 20px auto;
-  background-color: #EDE7F6;
+  background-color: transparent;
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
 }
 
 .searchForm {
-  display: inline-block;
+  float: left;
 }
 
 .searchForm__legend {
@@ -33,4 +43,51 @@
   margin: 10px auto;
   width: 70%;
   border-radius: 6px;
+}
+
+.movieInfo__poster {
+  float: right;
+  border-radius: 10px;
+  height: auto;
+  width: 50%;
+}
+
+.movieInfo__title {
+  clear: left;
+  font-size: 22px;
+  color: brown;
+  padding-top: 40px;
+}
+
+.movieInfo__overview {
+  font-size: 17px;
+  width: 40%;
+}
+
+.movieInfo__date {
+  font-size: 16px;
+  color: brown;
+}
+
+.toWish {
+  display: inline-block;
+  background-color: lightgrey;
+  border-radius: 8px;
+  padding: 0 12px;
+  margin-top: 20px;
+}
+
+.warning {
+  color:red;
+  font-size: 16px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.toWish__text {
+  color: #311B92;
+  font-weight: 500;
+  font-size: 18px;
+  padding: 6px 15px;
+  vertical-align: middle;
 }
