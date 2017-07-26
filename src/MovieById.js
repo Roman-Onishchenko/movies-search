@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from './actions';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './MovieById.css';
 
 const MovieById = (props) => {
@@ -12,17 +13,19 @@ const MovieById = (props) => {
   const currentMovie = wishlist.filter( (val) => val.id === movieId );
   const movieObj = currentMovie.get(0);
   return (
-
-    props.wishList.get('wishList').size > 0 && <div className="current">
-      <p className="current__title">{movieObj.title}</p>
-      <img
-        className="current__logo"
-        src={movieObj.poster_path}
-        alt="logo"
-      />
-      <p className="current__overview">{movieObj.overview}</p>
-      <p className="current__date">{movieObj.release_date}</p>
-    </div>
+    
+      props.wishList.get('wishList').size > 0 && <div className="current">
+        <span><Link to="/wishlist">Назад</Link> </span>
+        <span><Link to='/'>SearchPage</Link></span>
+        <p className="current__title">{movieObj.title}</p>
+        <img
+          className="current__logo"
+          src={movieObj.poster_path}
+          alt="logo"
+        />
+        <p className="current__overview">{movieObj.overview}</p>
+        <p className="current__date">{movieObj.release_date}</p>
+      </div>
   )
 };
 
