@@ -1,0 +1,31 @@
+.current {
+	width: 60%;
+	margin: 25px auto;
+	background-color: #EDE7F6;
+	padding: 20px;
+	text-align: center;
+	border-radius: 12px;
+}
+
+.current__title {
+	color: #1A237E;
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+
+.current__logo {
+	width: 280px;
+	border-radius: 6px;
+	height: auto;
+	margin-bottom: 20px;
+}
+
+.current__overview {
+	margin-bottom: 20px;
+	font-size: 18px;
+}
+
+.current__date {
+	font-size: 17px;
+	color: #1A237E;
+}
