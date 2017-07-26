@@ -7,7 +7,15 @@
 	border-radius: 12px;
 }
 
+.current span {
+	float: left;
+	margin-left: 20px;
+	font-size: 17px;
+	margin-bottom: 30px;
+}
+
 .current__title {
+	clear: both;
 	color: #1A237E;
 	font-size: 24px;
 	margin-bottom: 20px;
